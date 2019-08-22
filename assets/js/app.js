@@ -18,14 +18,15 @@ function getGiphys(gifSearch) {
         .done(function(data) {
             for (let i = 0; i < 5; i++) {
                 
-                console.log(data.data[i].images.downsized.url)
-                
+                var gifImg=data.data[i].images.downsized.url
+                createBox(gifImg)
             }
             })
     }
-function creatBox(){
-    var $img=$('img');
-    var $div=$('div');
-    $img.append($imgBody);
+function createBox(gifImg){
+    var $newImg=$('<img>');
+        $newImg.attr('src', gifImg);
+        $newImg.addClass('img-box');
+    $imgBody.append($newImg);
 }
 })
